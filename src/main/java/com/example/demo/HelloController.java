@@ -16,5 +16,13 @@ public class HelloController {
 		return "test!";
 	}
 
+	@RequestMapping("/test2")
+	public String test2() {
+		return "test2d!";
+	}
 
+	@RequestMapping("/test3")
+	public String test3() {
+		return "tesddt3!";
+	}
 }

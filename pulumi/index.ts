@@ -19,7 +19,7 @@ const appLabels = { app: appName };
 const app = new k8s.apps.v1.Deployment(appName, {
     metadata: { labels: appLabels, namespace: "default", name: appName ,
         annotations:{
-            "reloader.stakater.com/auto": "true"
+            //"reloader.stakater.com/auto": "true"
     }},
     spec: {
         replicas: 1,
@@ -43,7 +43,7 @@ const app = new k8s.apps.v1.Deployment(appName, {
                         env: [
                            {
                                 name: 'JAVA_TOOL_OPTIONS',
-                                value: "-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8888,suspend=n -Dspring.profiles.active=dev -Dspring.devtools.remote.secret=thisismysecret",
+                                value: "-Xdebug -Xrunjdwp:server=y,transport=dt_socket,address=8888,suspend=n -Dspring.devtools.remote.secret=thisismysecret",
                                 // you need to specify the non-profile config and profile config in the location property for them to be picked up in the right order. otherwise it will evaluate the profile configs after the non-profile configs
                                 //value: ` -Dspring.profiles.active=dev -Dspring.config.name=db,db_secret,application  -Dspring.config.location=/tmp/db/db.properties,/tmp/db/db_secret-dev.properties,/tmp/db/db-dev.properties,/tmp/application/application.properties,/tmp/application/application-dev.properties`
                             },
