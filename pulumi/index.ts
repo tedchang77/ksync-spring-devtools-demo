@@ -61,7 +61,10 @@ const frontend = new k8s.core.v1.Service(appName, {
     metadata: { labels: app.spec.template.metadata.labels,namespace: "default",name: appName },
     spec: {
         type:  "ClusterIP",
-        ports: [{ port: 80, targetPort: 8080, protocol: "TCP" }],
+        ports: [
+            { name: "app", port: 80, targetPort: 8080, protocol: "TCP" },
+            { name: "debug", port: 8888, targetPort: 8888, protocol: "TCP"}
+        ],
         selector: appLabels,
     },
 });

@@ -5,7 +5,7 @@
             "type": "java",
             "name": "Debug (Attach) - Remote",
             "request": "attach",
-            "hostName": "localhost",
+            "hostName": "app",
             "port": 8888,
         },
 
