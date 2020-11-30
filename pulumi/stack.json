@@ -1,0 +1,1234 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2020-10-29T09:48:46.1295605-04:00",
+            "magic": "edb82401dc4d5dc5fdd86767ab7f427143cf70891d9ac40673af9ae34b9022ce",
+            "version": "v2.12.1"
+        },
+        "secrets_providers": {
+            "type": "service",
+            "state": {
+                "url": "https://api.pulumi.com",
+                "owner": "tedchang77",
+                "project": "app1",
+                "stack": "dev"
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:dev::app1::pulumi:pulumi:Stack::app1-dev",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "outputs": {
+                    "frontendIp": "10.109.147.144"
+                }
+            },
+            {
+                "urn": "urn:pulumi:dev::app1::pulumi:providers:pulumi::default",
+                "custom": true,
+                "id": "9329eb47-b96b-41ec-8cf4-07a7fd0e1847",
+                "type": "pulumi:providers:pulumi"
+            },
+            {
+                "urn": "urn:pulumi:dev::app1::pulumi:providers:kubernetes::default_2_6_3",
+                "custom": true,
+                "id": "6077cdc1-752b-4d49-90f9-9287643ecc07",
+                "type": "pulumi:providers:kubernetes",
+                "inputs": {
+                    "version": "2.6.3"
+                },
+                "outputs": {
+                    "version": "2.6.3"
+                }
+            },
+            {
+                "urn": "urn:pulumi:dev::app1::kubernetes:core/v1:ConfigMap::app1",
+                "custom": true,
+                "id": "dev/app1",
+                "type": "kubernetes:core/v1:ConfigMap",
+                "inputs": {
+                    "apiVersion": "v1",
+                    "data": {
+                        "application-dev.properties": "property.overriden=application.properties.uniquedev",
+                        "application.properties": "env=${spring.profiles.active}\r\napplication.name=application.name.${env}\r\napplication.env=${env}\r\nproperty.overriden=application.properties\r\nmanagement.endpoints.enabled-by-default=true\r\nmanagement.endpoint.info.enabled=true\r\nmanagement.endpoints.web.exposure.include=env\r\n"
+                    },
+                    "kind": "ConfigMap",
+                    "metadata": {
+                        "labels": {
+                            "app": "app1",
+                            "app.kubernetes.io/managed-by": "pulumi"
+                        },
+                        "name": "app1",
+                        "namespace": "dev"
+                    }
+                },
+                "outputs": {
+                    "__initialApiVersion": "v1",
+                    "__inputs": {
+                        "apiVersion": "v1",
+                        "data": {
+                            "application-dev.properties": "property.overriden=application.properties.uniquedev",
+                            "application.properties": "env=${spring.profiles.active}\r\napplication.name=application.name.${env}\r\napplication.env=${env}\r\nproperty.overriden=application.properties\r\nmanagement.endpoints.enabled-by-default=true\r\nmanagement.endpoint.info.enabled=true\r\nmanagement.endpoints.web.exposure.include=env\r\n"
+                        },
+                        "kind": "ConfigMap",
+                        "metadata": {
+                            "labels": {
+                                "app": "app1",
+                                "app.kubernetes.io/managed-by": "pulumi"
+                            },
+                            "name": "app1",
+                            "namespace": "dev"
+                        }
+                    },
+                    "apiVersion": "v1",
+                    "data": {
+                        "application-dev.properties": "property.overriden=application.properties.uniquedev",
+                        "application.properties": "env=${spring.profiles.active}\r\napplication.name=application.name.${env}\r\napplication.env=${env}\r\nproperty.overriden=application.properties\r\nmanagement.endpoints.enabled-by-default=true\r\nmanagement.endpoint.info.enabled=true\r\nmanagement.endpoints.web.exposure.include=env\r\n"
+                    },
+                    "kind": "ConfigMap",
+                    "metadata": {
+                        "annotations": {
+                            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"data\":{\"application-dev.properties\":\"property.overriden=application.properties.uniquedev\",\"application.properties\":\"env=${spring.profiles.active}\\r\\napplication.name=application.name.${env}\\r\\napplication.env=${env}\\r\\nproperty.overriden=application.properties\\r\\nmanagement.endpoints.enabled-by-default=true\\r\\nmanagement.endpoint.info.enabled=true\\r\\nmanagement.endpoints.web.exposure.include=env\\r\\n\"},\"kind\":\"ConfigMap\",\"metadata\":{\"labels\":{\"app\":\"app1\",\"app.kubernetes.io/managed-by\":\"pulumi\"},\"name\":\"app1\",\"namespace\":\"dev\"}}\n"
+                        },
+                        "creationTimestamp": "2020-10-28T01:35:28Z",
+                        "labels": {
+                            "app": "app1",
+                            "app.kubernetes.io/managed-by": "pulumi"
+                        },
+                        "managedFields": [
+                            {
+                                "apiVersion": "v1",
+                                "fieldsType": "FieldsV1",
+                                "fieldsV1": {
+                                    "f:data": {
+                                        ".": {},
+                                        "f:application-dev.properties": {},
+                                        "f:application.properties": {}
+                                    },
+                                    "f:metadata": {
+                                        "f:annotations": {
+                                            ".": {},
+                                            "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                                        },
+                                        "f:labels": {
+                                            ".": {},
+                                            "f:app": {},
+                                            "f:app.kubernetes.io/managed-by": {}
+                                        }
+                                    }
+                                },
+                                "manager": "pulumi-resource-kubernetes.exe",
+                                "operation": "Update",
+                                "time": "2020-10-28T01:35:28Z"
+                            }
+                        ],
+                        "name": "app1",
+                        "namespace": "dev",
+                        "resourceVersion": "195915",
+                        "selfLink": "/api/v1/namespaces/dev/configmaps/app1",
+                        "uid": "2e5017aa-66f5-49d4-bfaa-fc9525de01fa"
+                    }
+                },
+                "parent": "urn:pulumi:dev::app1::pulumi:pulumi:Stack::app1-dev",
+                "provider": "urn:pulumi:dev::app1::pulumi:providers:kubernetes::default_2_6_3::6077cdc1-752b-4d49-90f9-9287643ecc07",
+                "propertyDependencies": {
+                    "apiVersion": null,
+                    "data": null,
+                    "kind": null,
+                    "metadata": null
+                }
+            },
+            {
+                "urn": "urn:pulumi:dev::app1::kubernetes:core/v1:ServiceAccount::kamus-example-sa",
+                "custom": true,
+                "id": "dev/kamus-example-sa",
+                "type": "kubernetes:core/v1:ServiceAccount",
+                "inputs": {
+                    "apiVersion": "v1",
+                    "kind": "ServiceAccount",
+                    "metadata": {
+                        "labels": {
+                            "app": "app1",
+                            "app.kubernetes.io/managed-by": "pulumi"
+                        },
+                        "name": "kamus-example-sa",
+                        "namespace": "dev"
+                    }
+                },
+                "outputs": {
+                    "__initialApiVersion": "v1",
+                    "__inputs": {
+                        "apiVersion": "v1",
+                        "kind": "ServiceAccount",
+                        "metadata": {
+                            "labels": {
+                                "app": "app1",
+                                "app.kubernetes.io/managed-by": "pulumi"
+                            },
+                            "name": "kamus-example-sa",
+                            "namespace": "dev"
+                        }
+                    },
+                    "apiVersion": "v1",
+                    "kind": "ServiceAccount",
+                    "metadata": {
+                        "annotations": {
+                            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"ServiceAccount\",\"metadata\":{\"labels\":{\"app\":\"app1\",\"app.kubernetes.io/managed-by\":\"pulumi\"},\"name\":\"kamus-example-sa\",\"namespace\":\"dev\"}}\n"
+                        },
+                        "creationTimestamp": "2020-10-28T02:29:02Z",
+                        "labels": {
+                            "app": "app1",
+                            "app.kubernetes.io/managed-by": "pulumi"
+                        },
+                        "managedFields": [
+                            {
+                                "apiVersion": "v1",
+                                "fieldsType": "FieldsV1",
+                                "fieldsV1": {
+                                    "f:secrets": {
+                                        ".": {},
+                                        "k:{\"name\":\"kamus-example-sa-token-xv68b\"}": {
+                                            ".": {},
+                                            "f:name": {}
+                                        }
+                                    }
+                                },
+                                "manager": "kube-controller-manager",
+                                "operation": "Update",
+                                "time": "2020-10-28T02:29:02Z"
+                            },
+                            {
+                                "apiVersion": "v1",
+                                "fieldsType": "FieldsV1",
+                                "fieldsV1": {
+                                    "f:metadata": {
+                                        "f:annotations": {
+                                            ".": {},
+                                            "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                                        },
+                                        "f:labels": {
+                                            ".": {},
+                                            "f:app": {},
+                                            "f:app.kubernetes.io/managed-by": {}
+                                        }
+                                    }
+                                },
+                                "manager": "pulumi-resource-kubernetes.exe",
+                                "operation": "Update",
+                                "time": "2020-10-28T02:29:02Z"
+                            }
+                        ],
+                        "name": "kamus-example-sa",
+                        "namespace": "dev",
+                        "resourceVersion": "198530",
+                        "selfLink": "/api/v1/namespaces/dev/serviceaccounts/kamus-example-sa",
+                        "uid": "5ef8750e-fcbb-43ee-9fa2-bd6c19e353b1"
+                    },
+                    "secrets": [
+                        {
+                            "name": "kamus-example-sa-token-xv68b"
+                        }
+                    ]
+                },
+                "parent": "urn:pulumi:dev::app1::pulumi:pulumi:Stack::app1-dev",
+                "provider": "urn:pulumi:dev::app1::pulumi:providers:kubernetes::default_2_6_3::6077cdc1-752b-4d49-90f9-9287643ecc07",
+                "propertyDependencies": {
+                    "apiVersion": null,
+                    "kind": null,
+                    "metadata": null
+                }
+            },
+            {
+                "urn": "urn:pulumi:dev::app1::pulumi:pulumi:StackReference::tedchang77/sharedconfigs/dev",
+                "custom": true,
+                "id": "tedchang77/sharedconfigs/dev",
+                "type": "pulumi:pulumi:StackReference",
+                "inputs": {
+                    "name": "tedchang77/sharedconfigs/dev"
+                },
+                "outputs": {
+                    "name": "tedchang77/sharedconfigs/dev",
+                    "outputs": {
+                        "dbConfigName": "db",
+                        "quartzConfigName": "quartz"
+                    },
+                    "secretOutputNames": []
+                },
+                "parent": "urn:pulumi:dev::app1::pulumi:pulumi:Stack::app1-dev",
+                "external": true,
+                "provider": "urn:pulumi:dev::app1::pulumi:providers:pulumi::default::9329eb47-b96b-41ec-8cf4-07a7fd0e1847"
+            },
+            {
+                "urn": "urn:pulumi:dev::app1::kubernetes:core/v1:ConfigMap::encrypted-secrets-cm",
+                "custom": true,
+                "id": "dev/encrypted-secrets-cm",
+                "type": "kubernetes:core/v1:ConfigMap",
+                "inputs": {
+                    "apiVersion": "v1",
+                    "data": {
+                        "password": "1iSU7a/3VAzR+TS8peVT7w==:bLB28lJsf3qXKT8ONNiVLA==",
+                        "template.ejs": "|\ndatabase:\n    host: localhost\n    port: 3066\n    username: \u003c%- secrets[\"username\"] %\u003e\n    password: \u003c%- secrets[\"password\"] %\u003e\n    dbname: db1\n    idle_conn: 5\n    max_conn: 100",
+                        "username": "1iSU7a/3VAzR+TS8peVT7w==:bLB28lJsf3qXKT8ONNiVLA=="
+                    },
+                    "kind": "ConfigMap",
+                    "metadata": {
+                        "labels": {
+                            "app": "app1",
+                            "app.kubernetes.io/managed-by": "pulumi"
+                        },
+                        "name": "encrypted-secrets-cm",
+                        "namespace": "dev"
+                    }
+                },
+                "outputs": {
+                    "__initialApiVersion": "v1",
+                    "__inputs": {
+                        "apiVersion": "v1",
+                        "data": {
+                            "password": "1iSU7a/3VAzR+TS8peVT7w==:bLB28lJsf3qXKT8ONNiVLA==",
+                            "template.ejs": "|\ndatabase:\n    host: localhost\n    port: 3066\n    username: \u003c%- secrets[\"username\"] %\u003e\n    password: \u003c%- secrets[\"password\"] %\u003e\n    dbname: db1\n    idle_conn: 5\n    max_conn: 100",
+                            "username": "1iSU7a/3VAzR+TS8peVT7w==:bLB28lJsf3qXKT8ONNiVLA=="
+                        },
+                        "kind": "ConfigMap",
+                        "metadata": {
+                            "labels": {
+                                "app": "app1",
+                                "app.kubernetes.io/managed-by": "pulumi"
+                            },
+                            "name": "encrypted-secrets-cm",
+                            "namespace": "dev"
+                        }
+                    },
+                    "apiVersion": "v1",
+                    "data": {
+                        "password": "1iSU7a/3VAzR+TS8peVT7w==:bLB28lJsf3qXKT8ONNiVLA==",
+                        "template.ejs": "|\ndatabase:\n    host: localhost\n    port: 3066\n    username: \u003c%- secrets[\"username\"] %\u003e\n    password: \u003c%- secrets[\"password\"] %\u003e\n    dbname: db1\n    idle_conn: 5\n    max_conn: 100",
+                        "username": "1iSU7a/3VAzR+TS8peVT7w==:bLB28lJsf3qXKT8ONNiVLA=="
+                    },
+                    "kind": "ConfigMap",
+                    "metadata": {
+                        "annotations": {
+                            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"data\":{\"password\":\"1iSU7a/3VAzR+TS8peVT7w==:bLB28lJsf3qXKT8ONNiVLA==\",\"template.ejs\":\"|\\ndatabase:\\n    host: localhost\\n    port: 3066\\n    username: \\u003c%- secrets[\\\"username\\\"] %\\u003e\\n    password: \\u003c%- secrets[\\\"password\\\"] %\\u003e\\n    dbname: db1\\n    idle_conn: 5\\n    max_conn: 100\",\"username\":\"1iSU7a/3VAzR+TS8peVT7w==:bLB28lJsf3qXKT8ONNiVLA==\"},\"kind\":\"ConfigMap\",\"metadata\":{\"labels\":{\"app\":\"app1\",\"app.kubernetes.io/managed-by\":\"pulumi\"},\"name\":\"encrypted-secrets-cm\",\"namespace\":\"dev\"}}\n"
+                        },
+                        "creationTimestamp": "2020-10-29T13:48:45Z",
+                        "labels": {
+                            "app": "app1",
+                            "app.kubernetes.io/managed-by": "pulumi"
+                        },
+                        "managedFields": [
+                            {
+                                "apiVersion": "v1",
+                                "fieldsType": "FieldsV1",
+                                "fieldsV1": {
+                                    "f:data": {
+                                        ".": {},
+                                        "f:password": {},
+                                        "f:template.ejs": {},
+                                        "f:username": {}
+                                    },
+                                    "f:metadata": {
+                                        "f:annotations": {
+                                            ".": {},
+                                            "f:kubectl.kubernetes.io/last-applied-configuration": {}
+                                        },
+                                        "f:labels": {
+                                            ".": {},
+                                            "f:app": {},
+                                            "f:app.kubernetes.io/managed-by": {}
+                                        }
+                                    }
+                                },
+                                "manager": "pulumi-resource-kubernetes.exe",
+                                "operation": "Update",
+                                "time": "2020-10-29T13:48:45Z"
+                            }
+                        ],
+                        "name": "encrypted-secrets-cm",
+                        "namespace": "dev",
+                        "resourceVersion": "227344",
+                        "selfLink": "/api/v1/namespaces/dev/configmaps/encrypted-secrets-cm",
+                        "uid": "c9141f90-18c7-4393-9f2e-f52fac2dd731"
+                    }
+                },
+                "parent": "urn:pulumi:dev::app1::pulumi:pulumi:Stack::app1-dev",
+                "provider": "urn:pulumi:dev::app1::pulumi:providers:kubernetes::default_2_6_3::6077cdc1-752b-4d49-90f9-9287643ecc07",
+                "propertyDependencies": {
+                    "apiVersion": null,
+                    "data": null,
+                    "kind": null,
+                    "metadata": null
+                }
+            },
+            {
+                "urn": "urn:pulumi:dev::app1::kubernetes:apps/v1:Deployment::app1",
+                "custom": true,
+                "id": "dev/app1-0dypalz5",
+                "type": "kubernetes:apps/v1:Deployment",
+                "inputs": {
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "metadata": {
+                        "annotations": {
+                            "pulumi.com/autonamed": "true",
+                            "reloader.stakater.com/auto": "true"
+                        },
+                        "labels": {
+                            "app": "app1",
+                            "app.kubernetes.io/managed-by": "pulumi"
+                        },
+                        "name": "app1-0dypalz5",
+                        "namespace": "dev"
+                    },
+                    "spec": {
+                        "replicas": 1,
+                        "selector": {
+                            "matchLabels": {
+                                "app": "app1"
+                            }
+                        },
+                        "template": {
+                            "metadata": {
+                                "labels": {
+                                    "app": "app1"
+                                }
+                            },
+                            "spec": {
+                                "automountServiceAccountToken": true,
+                                "containers": [
+                                    {
+                                        "env": [
+                                            {
+                                                "name": "JAVA_TOOL_OPTIONS",
+                                                "value": " -Dspring.profiles.active=dev -Dspring.config.name=db,application  -Dspring.config.location=/tmp/db/db.properties,/tmp/db/db-dev.properties,/tmp/application/application.properties,/tmp/application/application-dev.properties"
+                                            }
+                                        ],
+                                        "image": "localhost:5000/app1",
+                                        "name": "app1",
+                                        "volumeMounts": [
+                                            {
+                                                "mountPath": "/tmp/application/application.properties",
+                                                "name": "application-configs",
+                                                "subPath": "application.properties"
+                                            },
+                                            {
+                                                "mountPath": "/tmp/application/application-dev.properties",
+                                                "name": "application-configs",
+                                                "subPath": "application-dev.properties"
+                                            },
+                                            {
+                                                "mountPath": "/tmp/db/db.properties",
+                                                "name": "db-configs",
+                                                "subPath": "db.properties"
+                                            },
+                                            {
+                                                "mountPath": "/tmp/db/db-dev.properties",
+                                                "name": "db-configs",
+                                                "subPath": "db-dev.properties"
+                                            },
+                                            {
+                                                "mountPath": "/tmp",
+                                                "name": "decrypted-secrets"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "initContainers": [
+                                    {
+                                        "args": [
+                                            "-e",
+                                            "/encrypted-secrets",
+                                            "-d",
+                                            "/decrypted-secrets",
+                                            "-f",
+                                            "cfg",
+                                            "-n",
+                                            "secret.properties"
+                                        ],
+                                        "env": [
+                                            {
+                                                "name": "KAMUS_URL",
+                                                "value": "http://kamus-decryptor.default.svc.cluster.local/"
+                                            }
+                                        ],
+                                        "image": "soluto/kamus-init-container:latest",
+                                        "imagePullPolicy": "IfNotPresent",
+                                        "name": "kamus-init",
+                                        "volumeMounts": [
+                                            {
+                                                "mountPath": "/encrypted-secrets",
+                                                "name": "encrypted-secrets"
+                                            },
+                                            {
+                                                "mountPath": "/decrypted-secrets",
+                                                "name": "decrypted-secrets"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "serviceAccountName": "kamus-example-sa",
+                                "volumes": [
+                                    {
+                                        "configMap": {
+                                            "name": "app1"
+                                        },
+                                        "name": "application-configs"
+                                    },
+                                    {
+                                        "configMap": {
+                                            "name": "db"
+                                        },
+                                        "name": "db-configs"
+                                    },
+                                    {
+                                        "configMap": {
+                                            "name": "encrypted-secrets-cm"
+                                        },
+                                        "name": "encrypted-secrets"
+                                    },
+                                    {
+                                        "emptyDir": {
+                                            "medium": "Memory"
+                                        },
+                                        "name": "decrypted-secrets"
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                },
+                "outputs": {
+                    "__initialApiVersion": "apps/v1",
+                    "__inputs": {
+                        "apiVersion": "apps/v1",
+                        "kind": "Deployment",
+                        "metadata": {
+                            "annotations": {
+                                "pulumi.com/autonamed": "true",
+                                "reloader.stakater.com/auto": "true"
+                            },
+                            "labels": {
+                                "app": "app1",
+                                "app.kubernetes.io/managed-by": "pulumi"
+                            },
+                            "name": "app1-0dypalz5",
+                            "namespace": "dev"
+                        },
+                        "spec": {
+                            "replicas": 1,
+                            "selector": {
+                                "matchLabels": {
+                                    "app": "app1"
+                                }
+                            },
+                            "template": {
+                                "metadata": {
+                                    "labels": {
+                                        "app": "app1"
+                                    }
+                                },
+                                "spec": {
+                                    "automountServiceAccountToken": true,
+                                    "containers": [
+                                        {
+                                            "env": [
+                                                {
+                                                    "name": "JAVA_TOOL_OPTIONS",
+                                                    "value": " -Dspring.profiles.active=dev -Dspring.config.name=db,application  -Dspring.config.location=/tmp/db/db.properties,/tmp/db/db-dev.properties,/tmp/application/application.properties,/tmp/application/application-dev.properties"
+                                                }
+                                            ],
+                                            "image": "localhost:5000/app1",
+                                            "name": "app1",
+                                            "volumeMounts": [
+                                                {
+                                                    "mountPath": "/tmp/application/application.properties",
+                                                    "name": "application-configs",
+                                                    "subPath": "application.properties"
+                                                },
+                                                {
+                                                    "mountPath": "/tmp/application/application-dev.properties",
+                                                    "name": "application-configs",
+                                                    "subPath": "application-dev.properties"
+                                                },
+                                                {
+                                                    "mountPath": "/tmp/db/db.properties",
+                                                    "name": "db-configs",
+                                                    "subPath": "db.properties"
+                                                },
+                                                {
+                                                    "mountPath": "/tmp/db/db-dev.properties",
+                                                    "name": "db-configs",
+                                                    "subPath": "db-dev.properties"
+                                                },
+                                                {
+                                                    "mountPath": "/tmp",
+                                                    "name": "decrypted-secrets"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "initContainers": [
+                                        {
+                                            "args": [
+                                                "-e",
+                                                "/encrypted-secrets",
+                                                "-d",
+                                                "/decrypted-secrets",
+                                                "-f",
+                                                "cfg",
+                                                "-n",
+                                                "secret.properties"
+                                            ],
+                                            "env": [
+                                                {
+                                                    "name": "KAMUS_URL",
+                                                    "value": "http://kamus-decryptor.default.svc.cluster.local/"
+                                                }
+                                            ],
+                                            "image": "soluto/kamus-init-container:latest",
+                                            "imagePullPolicy": "IfNotPresent",
+                                            "name": "kamus-init",
+                                            "volumeMounts": [
+                                                {
+                                                    "mountPath": "/encrypted-secrets",
+                                                    "name": "encrypted-secrets"
+                                                },
+                                                {
+                                                    "mountPath": "/decrypted-secrets",
+                                                    "name": "decrypted-secrets"
+                                                }
+                                            ]
+                                        }
+                                    ],
+                                    "serviceAccountName": "kamus-example-sa",
+                                    "volumes": [
+                                        {
+                                            "configMap": {
+                                                "name": "app1"
+                                            },
+                                            "name": "application-configs"
+                                        },
+                                        {
+                                            "configMap": {
+                                                "name": "db"
+                                            },
+                                            "name": "db-configs"
+                                        },
+                                        {
+                                            "configMap": {
+                                                "name": "encrypted-secrets-cm"
+                                            },
+                                            "name": "encrypted-secrets"
+                                        },
+                                        {
+                                            "emptyDir": {
+                                                "medium": "Memory"
+                                            },
+                                            "name": "decrypted-secrets"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    "apiVersion": "apps/v1",
+                    "kind": "Deployment",
+                    "metadata": {
+                        "annotations": {
+                            "deployment.kubernetes.io/revision": "1",
+                            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"apps/v1\",\"kind\":\"Deployment\",\"metadata\":{\"annotations\":{\"pulumi.com/autonamed\":\"true\",\"reloader.stakater.com/auto\":\"true\"},\"labels\":{\"app\":\"app1\",\"app.kubernetes.io/managed-by\":\"pulumi\"},\"name\":\"app1-0dypalz5\",\"namespace\":\"dev\"},\"spec\":{\"replicas\":1,\"selector\":{\"matchLabels\":{\"app\":\"app1\"}},\"template\":{\"metadata\":{\"labels\":{\"app\":\"app1\"}},\"spec\":{\"automountServiceAccountToken\":true,\"containers\":[{\"env\":[{\"name\":\"JAVA_TOOL_OPTIONS\",\"value\":\" -Dspring.profiles.active=dev -Dspring.config.name=db,application  -Dspring.config.location=/tmp/db/db.properties,/tmp/db/db-dev.properties,/tmp/application/application.properties,/tmp/application/application-dev.properties\"}],\"image\":\"localhost:5000/app1\",\"name\":\"app1\",\"volumeMounts\":[{\"mountPath\":\"/tmp/application/application.properties\",\"name\":\"application-configs\",\"subPath\":\"application.properties\"},{\"mountPath\":\"/tmp/application/application-dev.properties\",\"name\":\"application-configs\",\"subPath\":\"application-dev.properties\"},{\"mountPath\":\"/tmp/db/db.properties\",\"name\":\"db-configs\",\"subPath\":\"db.properties\"},{\"mountPath\":\"/tmp/db/db-dev.properties\",\"name\":\"db-configs\",\"subPath\":\"db-dev.properties\"},{\"mountPath\":\"/tmp\",\"name\":\"decrypted-secrets\"}]}],\"initContainers\":[{\"args\":[\"-e\",\"/encrypted-secrets\",\"-d\",\"/decrypted-secrets\",\"-f\",\"cfg\",\"-n\",\"secret.properties\"],\"env\":[{\"name\":\"KAMUS_URL\",\"value\":\"http://kamus-decryptor.default.svc.cluster.local/\"}],\"image\":\"soluto/kamus-init-container:latest\",\"imagePullPolicy\":\"IfNotPresent\",\"name\":\"kamus-init\",\"volumeMounts\":[{\"mountPath\":\"/encrypted-secrets\",\"name\":\"encrypted-secrets\"},{\"mountPath\":\"/decrypted-secrets\",\"name\":\"decrypted-secrets\"}]}],\"serviceAccountName\":\"kamus-example-sa\",\"volumes\":[{\"configMap\":{\"name\":\"app1\"},\"name\":\"application-configs\"},{\"configMap\":{\"name\":\"db\"},\"name\":\"db-configs\"},{\"configMap\":{\"name\":\"encrypted-secrets-cm\"},\"name\":\"encrypted-secrets\"},{\"emptyDir\":{\"medium\":\"Memory\"},\"name\":\"decrypted-secrets\"}]}}}}\n",
+                            "pulumi.com/autonamed": "true",
+                            "reloader.stakater.com/auto": "true"
+                        },
+                        "creationTimestamp": "2020-10-29T12:53:52Z",
+                        "generation": 1,
+                        "labels": {
+                            "app": "app1",
+                            "app.kubernetes.io/managed-by": "pulumi"
+                        },
+                        "managedFields": [
+                            {
+                                "apiVersion": "apps/v1",
+                                "fieldsType": "FieldsV1",
+                                "fieldsV1": {
+                                    "f:metadata": {
+                                        "f:annotations": {
+                                            ".": {},
+                                            "f:kubectl.kubernetes.io/last-applied-configuration": {},
+                                            "f:pulumi.com/autonamed": {},
+                                            "f:reloader.stakater.com/auto": {}
+                                        },
+                                        "f:labels": {
+                                            ".": {},
+                                            "f:app": {},
+                                            "f:app.kubernetes.io/managed-by": {}
+                                        }
+                                    },
+                                    "f:spec": {
+                                        "f:progressDeadlineSeconds": {},
+                                        "f:replicas": {},
+                                        "f:revisionHistoryLimit": {},
+                                        "f:selector": {
+                                            "f:matchLabels": {
+                                                ".": {},
+                                                "f:app": {}
+                                            }
+                                        },
+                                        "f:strategy": {
+                                            "f:rollingUpdate": {
+                                                ".": {},
+                                                "f:maxSurge": {},
+                                                "f:maxUnavailable": {}
+                                            },
+                                            "f:type": {}
+                                        },
+                                        "f:template": {
+                                            "f:metadata": {
+                                                "f:labels": {
+                                                    ".": {},
+                                                    "f:app": {}
+                                                }
+                                            },
+                                            "f:spec": {
+                                                "f:automountServiceAccountToken": {},
+                                                "f:containers": {
+                                                    "k:{\"name\":\"app1\"}": {
+                                                        ".": {},
+                                                        "f:env": {
+                                                            ".": {},
+                                                            "k:{\"name\":\"JAVA_TOOL_OPTIONS\"}": {
+                                                                ".": {},
+                                                                "f:name": {},
+                                                                "f:value": {}
+                                                            }
+                                                        },
+                                                        "f:image": {},
+                                                        "f:imagePullPolicy": {},
+                                                        "f:name": {},
+                                                        "f:resources": {},
+                                                        "f:terminationMessagePath": {},
+                                                        "f:terminationMessagePolicy": {},
+                                                        "f:volumeMounts": {
+                                                            ".": {},
+                                                            "k:{\"mountPath\":\"/tmp\"}": {
+                                                                ".": {},
+                                                                "f:mountPath": {},
+                                                                "f:name": {}
+                                                            },
+                                                            "k:{\"mountPath\":\"/tmp/application/application-dev.properties\"}": {
+                                                                ".": {},
+                                                                "f:mountPath": {},
+                                                                "f:name": {},
+                                                                "f:subPath": {}
+                                                            },
+                                                            "k:{\"mountPath\":\"/tmp/application/application.properties\"}": {
+                                                                ".": {},
+                                                                "f:mountPath": {},
+                                                                "f:name": {},
+                                                                "f:subPath": {}
+                                                            },
+                                                            "k:{\"mountPath\":\"/tmp/db/db-dev.properties\"}": {
+                                                                ".": {},
+                                                                "f:mountPath": {},
+                                                                "f:name": {},
+                                                                "f:subPath": {}
+                                                            },
+                                                            "k:{\"mountPath\":\"/tmp/db/db.properties\"}": {
+                                                                ".": {},
+                                                                "f:mountPath": {},
+                                                                "f:name": {},
+                                                                "f:subPath": {}
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "f:dnsPolicy": {},
+                                                "f:initContainers": {
+                                                    ".": {},
+                                                    "k:{\"name\":\"kamus-init\"}": {
+                                                        ".": {},
+                                                        "f:args": {},
+                                                        "f:env": {
+                                                            ".": {},
+                                                            "k:{\"name\":\"KAMUS_URL\"}": {
+                                                                ".": {},
+                                                                "f:name": {},
+                                                                "f:value": {}
+                                                            }
+                                                        },
+                                                        "f:image": {},
+                                                        "f:imagePullPolicy": {},
+                                                        "f:name": {},
+                                                        "f:resources": {},
+                                                        "f:terminationMessagePath": {},
+                                                        "f:terminationMessagePolicy": {},
+                                                        "f:volumeMounts": {
+                                                            ".": {},
+                                                            "k:{\"mountPath\":\"/decrypted-secrets\"}": {
+                                                                ".": {},
+                                                                "f:mountPath": {},
+                                                                "f:name": {}
+                                                            },
+                                                            "k:{\"mountPath\":\"/encrypted-secrets\"}": {
+                                                                ".": {},
+                                                                "f:mountPath": {},
+                                                                "f:name": {}
+                                                            }
+                                                        }
+                                                    }
+                                                },
+                                                "f:restartPolicy": {},
+                                                "f:schedulerName": {},
+                                                "f:securityContext": {},
+                                                "f:serviceAccount": {},
+                                                "f:serviceAccountName": {},
+                                                "f:terminationGracePeriodSeconds": {},
+                                                "f:volumes": {
+                                                    ".": {},
+                                                    "k:{\"name\":\"application-configs\"}": {
+                                                        ".": {},
+                                                        "f:configMap": {
+                                                            ".": {},
+                                                            "f:defaultMode": {},
+                                                            "f:name": {}
+                                                        },
+                                                        "f:name": {}
+                                                    },
+                                                    "k:{\"name\":\"db-configs\"}": {
+                                                        ".": {},
+                                                        "f:configMap": {
+                                                            ".": {},
+                                                            "f:defaultMode": {},
+                                                            "f:name": {}
+                                                        },
+                                                        "f:name": {}
+                                                    },
+                                                    "k:{\"name\":\"decrypted-secrets\"}": {
+                                                        ".": {},
+                                                        "f:emptyDir": {
+                                                            ".": {},
+                                                            "f:medium": {}
+                                                        },
+                                                        "f:name": {}
+                                                    },
+                                                    "k:{\"name\":\"encrypted-secrets\"}": {
+                                                        ".": {},
+                                                        "f:configMap": {
+                                                            ".": {},
+                                                            "f:defaultMode": {},
+                                                            "f:name": {}
+                                                        },
+                                                        "f:name": {}
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "manager": "pulumi-resource-kubernetes.exe",
+                                "operation": "Update",
+                                "time": "2020-10-29T12:53:52Z"
+                            },
+                            {
+                                "apiVersion": "apps/v1",
+                                "fieldsType": "FieldsV1",
+                                "fieldsV1": {
+                                    "f:metadata": {
+                                        "f:annotations": {
+                                            "f:deployment.kubernetes.io/revision": {}
+                                        }
+                                    },
+                                    "f:status": {
+                                        "f:availableReplicas": {},
+                                        "f:conditions": {
+                                            ".": {},
+                                            "k:{\"type\":\"Available\"}": {
+                                                ".": {},
+                                                "f:lastTransitionTime": {},
+                                                "f:lastUpdateTime": {},
+                                                "f:message": {},
+                                                "f:reason": {},
+                                                "f:status": {},
+                                                "f:type": {}
+                                            },
+                                            "k:{\"type\":\"Progressing\"}": {
+                                                ".": {},
+                                                "f:lastTransitionTime": {},
+                                                "f:lastUpdateTime": {},
+                                                "f:message": {},
+                                                "f:reason": {},
+                                                "f:status": {},
+                                                "f:type": {}
+                                            }
+                                        },
+                                        "f:observedGeneration": {},
+                                        "f:readyReplicas": {},
+                                        "f:replicas": {},
+                                        "f:updatedReplicas": {}
+                                    }
+                                },
+                                "manager": "kube-controller-manager",
+                                "operation": "Update",
+                                "time": "2020-10-29T12:53:55Z"
+                            }
+                        ],
+                        "name": "app1-0dypalz5",
+                        "namespace": "dev",
+                        "resourceVersion": "224979",
+                        "selfLink": "/apis/apps/v1/namespaces/dev/deployments/app1-0dypalz5",
+                        "uid": "13227c4d-0c6e-47a5-8e55-03a59648ee88"
+                    },
+                    "spec": {
+                        "progressDeadlineSeconds": 600,
+                        "replicas": 1,
+                        "revisionHistoryLimit": 10,
+                        "selector": {
+                            "matchLabels": {
+                                "app": "app1"
+                            }
+                        },
+                        "strategy": {
+                            "rollingUpdate": {
+                                "maxSurge": "25%",
+                                "maxUnavailable": "25%"
+                            },
+                            "type": "RollingUpdate"
+                        },
+                        "template": {
+                            "metadata": {
+                                "labels": {
+                                    "app": "app1"
+                                }
+                            },
+                            "spec": {
+                                "automountServiceAccountToken": true,
+                                "containers": [
+                                    {
+                                        "env": [
+                                            {
+                                                "name": "JAVA_TOOL_OPTIONS",
+                                                "value": " -Dspring.profiles.active=dev -Dspring.config.name=db,application  -Dspring.config.location=/tmp/db/db.properties,/tmp/db/db-dev.properties,/tmp/application/application.properties,/tmp/application/application-dev.properties"
+                                            }
+                                        ],
+                                        "image": "localhost:5000/app1",
+                                        "imagePullPolicy": "Always",
+                                        "name": "app1",
+                                        "resources": {},
+                                        "terminationMessagePath": "/dev/termination-log",
+                                        "terminationMessagePolicy": "File",
+                                        "volumeMounts": [
+                                            {
+                                                "mountPath": "/tmp/application/application.properties",
+                                                "name": "application-configs",
+                                                "subPath": "application.properties"
+                                            },
+                                            {
+                                                "mountPath": "/tmp/application/application-dev.properties",
+                                                "name": "application-configs",
+                                                "subPath": "application-dev.properties"
+                                            },
+                                            {
+                                                "mountPath": "/tmp/db/db.properties",
+                                                "name": "db-configs",
+                                                "subPath": "db.properties"
+                                            },
+                                            {
+                                                "mountPath": "/tmp/db/db-dev.properties",
+                                                "name": "db-configs",
+                                                "subPath": "db-dev.properties"
+                                            },
+                                            {
+                                                "mountPath": "/tmp",
+                                                "name": "decrypted-secrets"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "dnsPolicy": "ClusterFirst",
+                                "initContainers": [
+                                    {
+                                        "args": [
+                                            "-e",
+                                            "/encrypted-secrets",
+                                            "-d",
+                                            "/decrypted-secrets",
+                                            "-f",
+                                            "cfg",
+                                            "-n",
+                                            "secret.properties"
+                                        ],
+                                        "env": [
+                                            {
+                                                "name": "KAMUS_URL",
+                                                "value": "http://kamus-decryptor.default.svc.cluster.local/"
+                                            }
+                                        ],
+                                        "image": "soluto/kamus-init-container:latest",
+                                        "imagePullPolicy": "IfNotPresent",
+                                        "name": "kamus-init",
+                                        "resources": {},
+                                        "terminationMessagePath": "/dev/termination-log",
+                                        "terminationMessagePolicy": "File",
+                                        "volumeMounts": [
+                                            {
+                                                "mountPath": "/encrypted-secrets",
+                                                "name": "encrypted-secrets"
+                                            },
+                                            {
+                                                "mountPath": "/decrypted-secrets",
+                                                "name": "decrypted-secrets"
+                                            }
+                                        ]
+                                    }
+                                ],
+                                "restartPolicy": "Always",
+                                "schedulerName": "default-scheduler",
+                                "securityContext": {},
+                                "serviceAccount": "kamus-example-sa",
+                                "serviceAccountName": "kamus-example-sa",
+                                "terminationGracePeriodSeconds": 30,
+                                "volumes": [
+                                    {
+                                        "configMap": {
+                                            "defaultMode": 420,
+                                            "name": "app1"
+                                        },
+                                        "name": "application-configs"
+                                    },
+                                    {
+                                        "configMap": {
+                                            "defaultMode": 420,
+                                            "name": "db"
+                                        },
+                                        "name": "db-configs"
+                                    },
+                                    {
+                                        "configMap": {
+                                            "defaultMode": 420,
+                                            "name": "encrypted-secrets-cm"
+                                        },
+                                        "name": "encrypted-secrets"
+                                    },
+                                    {
+                                        "emptyDir": {
+                                            "medium": "Memory"
+                                        },
+                                        "name": "decrypted-secrets"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    "status": {
+                        "availableReplicas": 1,
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2020-10-29T12:53:55Z",
+                                "lastUpdateTime": "2020-10-29T12:53:55Z",
+                                "message": "Deployment has minimum availability.",
+                                "reason": "MinimumReplicasAvailable",
+                                "status": "True",
+                                "type": "Available"
+                            },
+                            {
+                                "lastTransitionTime": "2020-10-29T12:53:52Z",
+                                "lastUpdateTime": "2020-10-29T12:53:55Z",
+                                "message": "ReplicaSet \"app1-0dypalz5-7949f7478b\" has successfully progressed.",
+                                "reason": "NewReplicaSetAvailable",
+                                "status": "True",
+                                "type": "Progressing"
+                            }
+                        ],
+                        "observedGeneration": 1,
+                        "readyReplicas": 1,
+                        "replicas": 1,
+                        "updatedReplicas": 1
+                    }
+                },
+                "parent": "urn:pulumi:dev::app1::pulumi:pulumi:Stack::app1-dev",
+                "dependencies": [
+                    "urn:pulumi:dev::app1::kubernetes:core/v1:ServiceAccount::kamus-example-sa",
+                    "urn:pulumi:dev::app1::kubernetes:core/v1:ConfigMap::app1",
+                    "urn:pulumi:dev::app1::pulumi:pulumi:StackReference::tedchang77/sharedconfigs/dev",
+                    "urn:pulumi:dev::app1::kubernetes:core/v1:ConfigMap::encrypted-secrets-cm"
+                ],
+                "provider": "urn:pulumi:dev::app1::pulumi:providers:kubernetes::default_2_6_3::6077cdc1-752b-4d49-90f9-9287643ecc07",
+                "propertyDependencies": {
+                    "apiVersion": null,
+                    "kind": null,
+                    "metadata": null,
+                    "spec": [
+                        "urn:pulumi:dev::app1::kubernetes:core/v1:ServiceAccount::kamus-example-sa",
+                        "urn:pulumi:dev::app1::kubernetes:core/v1:ConfigMap::app1",
+                        "urn:pulumi:dev::app1::pulumi:pulumi:StackReference::tedchang77/sharedconfigs/dev",
+                        "urn:pulumi:dev::app1::kubernetes:core/v1:ConfigMap::encrypted-secrets-cm"
+                    ]
+                },
+                "pendingReplacement": true,
+                "aliases": [
+                    "urn:pulumi:dev::app1::kubernetes:apps/v1beta1:Deployment::app1",
+                    "urn:pulumi:dev::app1::kubernetes:apps/v1beta2:Deployment::app1",
+                    "urn:pulumi:dev::app1::kubernetes:extensions/v1beta1:Deployment::app1"
+                ]
+            },
+            {
+                "urn": "urn:pulumi:dev::app1::kubernetes:core/v1:Service::app1",
+                "custom": true,
+                "id": "dev/app1-lp6faij2",
+                "type": "kubernetes:core/v1:Service",
+                "inputs": {
+                    "apiVersion": "v1",
+                    "kind": "Service",
+                    "metadata": {
+                        "annotations": {
+                            "pulumi.com/autonamed": "true"
+                        },
+                        "labels": {
+                            "app": "app1",
+                            "app.kubernetes.io/managed-by": "pulumi"
+                        },
+                        "name": "app1-lp6faij2",
+                        "namespace": "dev"
+                    },
+                    "spec": {
+                        "ports": [
+                            {
+                                "port": 80,
+                                "protocol": "TCP",
+                                "targetPort": 80
+                            }
+                        ],
+                        "selector": {
+                            "app": "app1"
+                        },
+                        "type": "ClusterIP"
+                    }
+                },
+                "outputs": {
+                    "__initialApiVersion": "v1",
+                    "__inputs": {
+                        "apiVersion": "v1",
+                        "kind": "Service",
+                        "metadata": {
+                            "annotations": {
+                                "pulumi.com/autonamed": "true"
+                            },
+                            "labels": {
+                                "app": "app1",
+                                "app.kubernetes.io/managed-by": "pulumi"
+                            },
+                            "name": "app1-lp6faij2",
+                            "namespace": "dev"
+                        },
+                        "spec": {
+                            "ports": [
+                                {
+                                    "port": 80,
+                                    "protocol": "TCP",
+                                    "targetPort": 80
+                                }
+                            ],
+                            "selector": {
+                                "app": "app1"
+                            },
+                            "type": "ClusterIP"
+                        }
+                    },
+                    "apiVersion": "v1",
+                    "kind": "Service",
+                    "metadata": {
+                        "annotations": {
+                            "kubectl.kubernetes.io/last-applied-configuration": "{\"apiVersion\":\"v1\",\"kind\":\"Service\",\"metadata\":{\"annotations\":{\"pulumi.com/autonamed\":\"true\"},\"labels\":{\"app\":\"app1\",\"app.kubernetes.io/managed-by\":\"pulumi\"},\"name\":\"app1-lp6faij2\",\"namespace\":\"dev\"},\"spec\":{\"ports\":[{\"port\":80,\"protocol\":\"TCP\",\"targetPort\":80}],\"selector\":{\"app\":\"app1\"},\"type\":\"ClusterIP\"}}\n",
+                            "pulumi.com/autonamed": "true"
+                        },
+                        "creationTimestamp": "2020-10-29T12:53:56Z",
+                        "labels": {
+                            "app": "app1",
+                            "app.kubernetes.io/managed-by": "pulumi"
+                        },
+                        "managedFields": [
+                            {
+                                "apiVersion": "v1",
+                                "fieldsType": "FieldsV1",
+                                "fieldsV1": {
+                                    "f:metadata": {
+                                        "f:annotations": {
+                                            ".": {},
+                                            "f:kubectl.kubernetes.io/last-applied-configuration": {},
+                                            "f:pulumi.com/autonamed": {}
+                                        },
+                                        "f:labels": {
+                                            ".": {},
+                                            "f:app": {},
+                                            "f:app.kubernetes.io/managed-by": {}
+                                        }
+                                    },
+                                    "f:spec": {
+                                        "f:ports": {
+                                            ".": {},
+                                            "k:{\"port\":80,\"protocol\":\"TCP\"}": {
+                                                ".": {},
+                                                "f:port": {},
+                                                "f:protocol": {},
+                                                "f:targetPort": {}
+                                            }
+                                        },
+                                        "f:selector": {
+                                            ".": {},
+                                            "f:app": {}
+                                        },
+                                        "f:sessionAffinity": {},
+                                        "f:type": {}
+                                    }
+                                },
+                                "manager": "pulumi-resource-kubernetes.exe",
+                                "operation": "Update",
+                                "time": "2020-10-29T12:53:56Z"
+                            }
+                        ],
+                        "name": "app1-lp6faij2",
+                        "namespace": "dev",
+                        "resourceVersion": "224981",
+                        "selfLink": "/api/v1/namespaces/dev/services/app1-lp6faij2",
+                        "uid": "ed3ec109-e47e-4ecc-b676-35884f1f0327"
+                    },
+                    "spec": {
+                        "clusterIP": "10.109.147.144",
+                        "ports": [
+                            {
+                                "port": 80,
+                                "protocol": "TCP",
+                                "targetPort": 80
+                            }
+                        ],
+                        "selector": {
+                            "app": "app1"
+                        },
+                        "sessionAffinity": "None",
+                        "type": "ClusterIP"
+                    },
+                    "status": {
+                        "loadBalancer": {}
+                    }
+                },
+                "parent": "urn:pulumi:dev::app1::pulumi:pulumi:Stack::app1-dev",
+                "dependencies": [
+                    "urn:pulumi:dev::app1::kubernetes:apps/v1:Deployment::app1"
+                ],
+                "provider": "urn:pulumi:dev::app1::pulumi:providers:kubernetes::default_2_6_3::6077cdc1-752b-4d49-90f9-9287643ecc07",
+                "propertyDependencies": {
+                    "apiVersion": null,
+                    "kind": null,
+                    "metadata": [
+                        "urn:pulumi:dev::app1::kubernetes:apps/v1:Deployment::app1"
+                    ],
+                    "spec": null
+                },
+                "pendingReplacement": true
+            }
+        ],
+        "pending_operations": [
+           
+        ]
+    }
+}

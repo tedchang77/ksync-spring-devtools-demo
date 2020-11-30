@@ -1,0 +1,6 @@
+config:
+  app1:secrets:
+    db:
+      secure: AAABAJd8MsPWE87CRr5rK5nt6myoV5F9INhnH03lGmek0cntjEhgKNbqse9rXADDESS8mdogj2kMfy0zSvDeodlWjhbG2N3YRbc4P0lkxwdD
+    mq:
+      secure: AAABAFFYqbjf6+zyLA5Y/3exFXWnbteNCzcAmMOVEXSAUxTP8SlbYuiZ/gH0o6KohYqheMJFJw9unKbqbwSYCwFjnQvPo6UW+9OJL7yntkx3
